@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoundTimer));
             this.lb_play = new System.Windows.Forms.Label();
             this.lb_stop = new System.Windows.Forms.Label();
             this.tb_play = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // lb_play
@@ -59,7 +61,7 @@
             this.lb_stop.Name = "lb_stop";
             this.lb_stop.Size = new System.Drawing.Size(53, 12);
             this.lb_stop.TabIndex = 1;
-            this.lb_stop.Text = "暂停时间";
+            this.lb_stop.Text = "静音时间";
             // 
             // tb_play
             // 
@@ -135,16 +137,23 @@
             // 
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.title.Location = new System.Drawing.Point(94, 9);
+            this.title.Location = new System.Drawing.Point(86, 9);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(104, 16);
             this.title.TabIndex = 10;
-            this.title.Text = "声音定时控制";
+            this.title.Text = "定时静音工具";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "MuteTimer";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // SoundTimer
             // 
@@ -163,7 +172,8 @@
             this.Controls.Add(this.lb_stop);
             this.Controls.Add(this.lb_play);
             this.Name = "SoundTimer";
-            this.Text = "SoundTimer";
+            this.Text = "MuteTimer";
+            this.SizeChanged += new System.EventHandler(this.SoundTimer_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,6 +193,7 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

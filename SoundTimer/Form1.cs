@@ -91,7 +91,7 @@ namespace SoundTimer
             {
                 if (this.state != STATE_STOP)
                 {
-                    this.lb_staus.Text = "休息中";
+                    this.lb_staus.Text = "静音中";
                     DecreaseSystemVolume();
                 }
                 int lefeSeconds = totalInterval * 60 - seconds;
@@ -139,6 +139,22 @@ namespace SoundTimer
         private void VolumeMute()
         { 
             SendMessage(this.Handle, WM_APPCOMMAND, 0x200eb0, APPCOMMAND_VOLUME_MUTE * 0x10000);
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.notifyIcon1.Visible = false;
+        }
+
+        private void SoundTimer_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                this.notifyIcon1.Visible = true;
+            } 
         }
     }
 }
