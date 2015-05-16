@@ -69,6 +69,7 @@
             this.tb_play.Name = "tb_play";
             this.tb_play.Size = new System.Drawing.Size(139, 21);
             this.tb_play.TabIndex = 2;
+            this.tb_play.Text = "30";
             this.tb_play.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tb_stop
@@ -77,6 +78,7 @@
             this.tb_stop.Name = "tb_stop";
             this.tb_stop.Size = new System.Drawing.Size(139, 21);
             this.tb_stop.TabIndex = 3;
+            this.tb_stop.Text = "10";
             this.tb_stop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -125,6 +127,7 @@
             // 
             // btn_cancel
             // 
+            this.btn_cancel.Enabled = false;
             this.btn_cancel.Location = new System.Drawing.Point(164, 106);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);

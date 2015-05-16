@@ -46,6 +46,10 @@ namespace SoundTimer
                 //播放状态
                 this.state = STATE_STOP;
                 this.timer.Start();
+                this.tb_play.Enabled = false;
+                this.tb_stop.Enabled = false;
+                this.btn_start.Enabled = false;
+                this.btn_cancel.Enabled = true;
             }
             catch (OverflowException)
             {
@@ -67,6 +71,10 @@ namespace SoundTimer
             RecoverySystemVolume();
             this.lb_leftTime.Text = "";
             this.lb_staus.Text = "";
+            this.tb_play.Enabled = true;
+            this.tb_stop.Enabled = true;
+            this.btn_start.Enabled = true;
+            this.btn_cancel.Enabled = false;
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -154,7 +162,7 @@ namespace SoundTimer
             {
                 this.Hide();
                 this.notifyIcon1.Visible = true;
-            } 
+            }
         }
     }
 }
